@@ -16,6 +16,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
+MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 
 
 # Quick-start development settings - unsuitable for production
@@ -63,6 +64,7 @@ TEMPLATES = [
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
+                'django.template.context_processors.media',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
@@ -71,6 +73,9 @@ TEMPLATES = [
 ]
 
 STATICFILES_DIRS = [STATIC_DIR, ]
+
+MEDIA_ROOT = MEDIA_DIR
+MEDIA_URL = '/media/'
 
 WSGI_APPLICATION = 'tango_with_django_project.wsgi.application'
 
