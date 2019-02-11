@@ -10,10 +10,18 @@
     <h1>Rango says...</h1><br>
     <div>
       <p>hey there partner!</p>
-      <strong>{{boldmessage}}</strong><br>
+      {% if categories %}
+      <ul>
+        {% for category in categories %}
+        <li>{{ category.name }}</li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <strong>There are no categories present.</strong>
+      {% endif %}
     </div>
     <div>
-      <a href="/rango/About">About</a><br>
+      <a href="/rango/about">About Rango</a><br>
       <img src="{% static "images/rango.jpg" %}" alt="Picture of Rango" />
     </div>
   </body>
