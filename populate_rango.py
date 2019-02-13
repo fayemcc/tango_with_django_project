@@ -35,8 +35,10 @@ def populate():
 
     for cat, cat_dict in cats.items():
         c = add_cat(cat, cat_dict["views"], cat_dict["likes"])
+        i = 10
         for p in cat_dict["pages"]:
-            add_page(c, p["title"], p["url"])
+            add_page(c, p["title"], p["url"], i)
+            i += 10
 
     for c in Category.objects.all():
         print("<Category: {0}, {1} views, {2} likes".format(str(c), c.views, c.likes))
@@ -54,7 +56,7 @@ def add_cat(name, views, likes):
     return c
 
 
-def add_page(cat, title, url, views=0):
+def add_page(cat, title, url, views):
     P = Page.objects.get_or_create(category=cat, title=title)[0]
     P.url = url
     P.views = views

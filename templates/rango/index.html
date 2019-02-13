@@ -8,8 +8,9 @@
 
   <body>
     <h1>Rango says...</h1><br>
+    <p>hey there partner!</p>
     <div>
-      <p>hey there partner!</p>
+      <strong>Most Liked Categories</strong>
       {% if categories %}
       <ul>
         {% for category in categories %}
@@ -17,8 +18,23 @@
         {% endfor %}
       </ul>
       {% else %}
-      <strong>There are no categories present.</strong>
+      <p>There are no categories present.</p>
       {% endif %}
+    </div>
+    <div>
+      <strong>Most Liked Pages</strong><br>
+      {% if pages %}
+      <ul>
+        {% for page in pages %}
+        <li>{{ page.title }}</li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p>There are no pages present.</p>
+      {% endif %}
+    </div>
+    <div>
+      <a href="/rango/add_category/">Add a New Category</a><br>
     </div>
     <div>
       <a href="/rango/about">About Rango</a><br>

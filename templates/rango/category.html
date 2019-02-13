@@ -6,6 +6,7 @@
     <title>Rango</title>
   </head>
   <body>
+    <a href="/">Back to Index Page</a>
     <div>
     {% if category %}
       <h1>{{ category.name }}</h1>
@@ -15,12 +16,12 @@
             <li><a href="{{ page.url }}">{{page.title}}</a></li>
           {% endfor %}
         </ul>
+        <a href="/rango/category/{{ category.slug }}/add_page/">Add a New Page</a>
       {% else %}
         <strong>No pages currently in the category.</strong>
       {% endif %}
     {% else %}
       The specified category does not exist! <br>
-
     {% endif %}
     </div>
   </body>
