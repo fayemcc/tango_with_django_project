@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+
+
 <html>
   <head>
     <title>Rango</title>
@@ -6,6 +8,7 @@
   <body>
     <div>
     {% if category %}
+      <h1>{{ category.name }}</h1>
       {% if pages %}
         <ul>
           {%for page in pages %}
@@ -16,7 +19,8 @@
         <strong>No pages currently in the category.</strong>
       {% endif %}
     {% else %}
-      The specified category does not exist!
+      The specified category does not exist! <br>
+
     {% endif %}
     </div>
   </body>

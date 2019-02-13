@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.core.exceptions import ObjectDoesNotExist
 
 from rango.models import Category, Page
 
@@ -20,14 +21,14 @@ def show_category(request, category_name_slug):
     context_dict = {}
 
     try:
-        category = Category.objects.get(slug=category_name_slug)
+        category = Category.objects.get(slug=(category_name_slug[:-1]))
 
         pages = Page.objects.filter(category=category)
 
         context_dict['category'] = category
         context_dict['pages'] = pages
 
-    except Category.doesNotExist:
+    except ObjectDoesNotExist:
         context_dict['category'] = None
         context_dict['pages'] = None
 
